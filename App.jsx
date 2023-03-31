@@ -1,22 +1,17 @@
-import { useState } from "react";
-import { Formulario } from "./components/Formulario";
-import { Header } from "./components/Header";
-import { Tabela } from "./components/Tabela";
+import { useState } from 'react'
+import './App.css'
+import CardAdicionar from './Components/CardAdicionar'
 
-export const App = () => {
-  const [negociacoes, setNegociacoes] = useState([]);
 
-  function adicionarNegociacao(negociacao) {
-    setNegociacoes([...negociacoes, negociacao]);
-  }
+function App() {
+  const [arrayDeObjetos, setArrayDeObjetos] = useState([]);
 
   return (
     <div>
-      <Header titulo="Negociações" />
-      <div className="container">
-        <Formulario quandoAdicionar={adicionarNegociacao} />
-        <Tabela negociacoes={negociacoes} />
-      </div>
+      <CardAdicionar />
     </div>
   );
-};
+}
+
+export default App;
+
