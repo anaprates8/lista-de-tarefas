@@ -1,25 +1,35 @@
 import { useState } from 'react'
 import './App.css'
 import CardAdicionar from './Components/CardAdicionar'
+//import ListItem from './Components/ListItem';
+
 
 
 function App() {
-  const [textoTarefa, setTextoTarefa] = useState([]);
+  const [Tarefa, setTarefa] = useState([]);
   
+  
+  const criarTarefas = (tarefa) => {
+    const novaTarefa = {
+      id: listaDeTarefas.length + 1,
+      texto: 'tarefa',
+      finalizado: false,
+    };
 
-  let novaTarefa = {
-    id: 0,
-    texto: textoTarefa,
-    finalizado: false,
+    setTarefa([...listaDeTarefas, novaTarefa]);
   }
+
 
   return (
     <div>
-      <CardAdicionar adicionarTarefa={novaTarefa}></CardAdicionar>
+      <CardAdicionar  />
+   
     </div>
   );
 }
 
+
 export default App;
+
 
 
