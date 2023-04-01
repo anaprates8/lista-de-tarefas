@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 
-const ListItem = ({ tarefa, tarefaFeita, removerTarefa }) => {
-    const [finalizado, setFinalizado] = useState(tarefa.finalizado);
+function ListItem({ tarefa, tarefaFeita, removerTarefa }) {
+  const [finalizado, setFinalizado] = useState(tarefa.finalizado);
 
+
+  function handleFinalizarTarefa() {
+    setFinalizado(!finalizado);
+    tarefaFeita(tarefa.id);
+  }
 
   function finalizarTarefa() {
     setFinalizado(true);
-    props.onFinalizar(props.tarefa.id);
   }
 
   return (
     <div>
-      <p>{props.tarefa.descricao}</p>
-      <p>{finalizado ? "Concluída" : "Pendente"}</p>
-      {!finalizado && (
-        <button onClick={finalizarTarefa}>Concluir tarefa</button>
+      <p>{props.tarefa.texto}</p>
+      {finalizado ? (
+        <p>Tarefa finalizada!</p>
+      ) : (
+        <button type= "submit"{...finalizarTarefa}>Finalizar Tarefa</button>
       )}
     </div>
   );
